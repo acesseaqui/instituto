@@ -6,6 +6,7 @@
     <title>Instituto Wol - Plataforma de Cursos de Saúde</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
             --primary: #2A6B8C;
@@ -44,7 +45,7 @@
             padding: 0 20px;
         }
         
- /* NOVO: Topo branco com logo */
+        /* NOVO: Topo branco com logo */
         .topo-branco {
             background: white;
             padding: 15px 0;
@@ -353,22 +354,27 @@
             z-index: 2;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Carrossel de cursos */
+        .courses-slider {
+            padding: 20px 0 50px;
+            position: relative;
         }
         
-        .feature-card {
+        .swiper {
+            width: 100%;
+            padding: 30px 10px 70px;
+        }
+        
+        .swiper-slide {
             background: white;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
-            position: relative;
+            height: auto;
         }
         
-        .feature-card:hover {
+        .swiper-slide:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
@@ -398,11 +404,48 @@
         
         .feature-content {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 200px);
         }
         
         .feature-content h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
+        }
+        
+        .feature-content p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .swiper-pagination {
+            bottom: 0;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--secondary);
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.5rem;
         }
         
         /* How it Works Section */
@@ -509,7 +552,7 @@
         }
         
         .testimonial:before {
-            content: ''';
+            content: '''';
             position: absolute;
             top: -20px;
             left: -20px;
@@ -848,6 +891,10 @@
             .step:not(:last-child):after {
                 display: none;
             }
+            
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -927,7 +974,7 @@
 </head>
 <body>
 
- <!-- NOVO: Topo branco com logo -->
+    <!-- NOVO: Topo branco com logo -->
     <div class="topo-branco">
         <div class="container">
             <img src="https://dlzpblyjxiqfa.cloudfront.net/1430493554/products/u0zijutir4p2wycj08ino17q9" alt="Instituto Wol">
@@ -959,7 +1006,7 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Plataforma de Cursos de Saúde</h1>
-            <p>Monetize seu conhecimento em saúde criando e vendendo cursos na maior plataforma especializada do Brasil. Dra Luma Amaral</p>
+            <p>Monetize seu conhecimento em saúde criando e vendendo cursos na maior plataforma especializada do Brasil. Dra Luma Amaral.</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="#platform" class="btn">Quero Criar Meu Curso</a>
                 <a href="#features" class="btn btn-outline">Ver Cursos Disponíveis</a>
@@ -984,7 +1031,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Monetização</h3>
-                    <p>Receba pagamentos de forma segura e tenha relatórios detalhados de suas vendas.</p>
+                    <p>Receba pagamentos de forma segura và tenha relatórios detalhados de suas vendas.</p>
                 </div>
                 <div class="platform-card">
                     <div class="platform-icon">
@@ -1002,36 +1049,88 @@
     <section class="features" id="features">
         <div class="container features-content">
             <h2 class="section-title">Cursos em Destaque</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-img">
-                        <i class="fas fa-user-md"></i>
+            
+            <!-- Carrossel de Cursos -->
+            <div class="courses-slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Curso 1 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Enfermagem Avançada</h3>
+                                <p>Curso completo para enfermeiros que desejam se especializar em procedimentos complexos.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Curso 2 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Farmácia Clínica</h3>
+                                <p>Aprenda sobre farmacologia aplicada e interações medicamentosas com casos reais.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Curso 3 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Cardiologia para Leigos</h3>
+                                <p>Conheça os princípios básicos de cardiologia e primeiros socorros cardíacos.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Curso 4 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Enfermagem Pediátrica</h3>
+                                <p>Especialize-se nos cuidados com a saúde infantil e neonatal.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Curso 5 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Neurologia Básica</h3>
+                                <p>Conheça os fundamentos da neurologia e seus principais distúrbios.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Curso 6 -->
+                        <div class="swiper-slide">
+                            <div class="feature-img">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Fisioterapia Respiratória</h3>
+                                <p>Técnicas avançadas de fisioterapia para reabilitação pulmonar.</p>
+                                <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-content">
-                        <h3>Enfermagem Avançada</h3>
-                        <p>Curso completo para enfermeiros que desejam se especializar em procedimentos complexos.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-img">
-                        <i class="fas fa-pills"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Farmácia Clínica</h3>
-                        <p>Aprenda sobre farmacologia aplicada e interações medicamentosas com casos reais.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-img">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>Cardiologia para Leigos</h3>
-                        <p>Conheça os princípios básicos de cardiologia e primeiros socorros cardíacos.</p>
-                        <a href="https://api.whatsapp.com/send/?phone=556599845383&text&type=phone_number&app_absent=0" class="btn">Saiba Mais</a>
-                    </div>
+                    
+                    <!-- Paginação e Navegação -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </div>
@@ -1235,6 +1334,8 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // Menu toggle functionality
         const menuToggle = document.getElementById('menuToggle');
@@ -1322,6 +1423,35 @@
         
         document.querySelectorAll('.platform-card, .feature-card, .testimonial, .step').forEach(el => {
             observer.observe(el);
+        });
+        
+        // Inicialização do Swiper (carrossel)
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            loop: true,
         });
     </script>
 </body>
