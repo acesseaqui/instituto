@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto Wol de Educação em Saúde</title>
+    <title>Instituto Wol - Plataforma de Cursos de Saúde</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -213,14 +213,29 @@
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
         
-        /* Features com design tecnológico */
-        .features {
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+        
+        .btn-outline:before {
+            display: none;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Platform Section */
+        .platform {
             padding: 100px 0;
             background-color: white;
             position: relative;
         }
         
-        .features:before {
+        .platform:before {
             content: '';
             position: absolute;
             top: 0;
@@ -232,7 +247,7 @@
             z-index: 0;
         }
         
-        .features-content {
+        .platform-content {
             position: relative;
             z-index: 2;
         }
@@ -253,13 +268,13 @@
             border-radius: 2px;
         }
         
-        .features-grid {
+        .platform-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
         
-        .feature-card {
+        .platform-card {
             background: var(--light);
             border-radius: 15px;
             padding: 30px;
@@ -271,7 +286,7 @@
             border: 1px solid rgba(67, 180, 176, 0.1);
         }
         
-        .feature-card:before {
+        .platform-card:before {
             content: '';
             position: absolute;
             top: 0;
@@ -282,17 +297,17 @@
             transition: var(--transition);
         }
         
-        .feature-card:hover {
+        .platform-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
         
-        .feature-card:hover:before {
+        .platform-card:hover:before {
             width: 100%;
             opacity: 0.05;
         }
         
-        .feature-icon {
+        .platform-icon {
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 20px;
@@ -300,17 +315,17 @@
             z-index: 2;
         }
         
-        /* Courses Section */
-        .courses {
+        /* Features Section */
+        .features {
             padding: 100px 0;
             background: linear-gradient(to bottom, #f8f9fc, #eef2f7);
             position: relative;
         }
         
-        .courses:before {
+        .features:before {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 100%;
@@ -318,18 +333,18 @@
             background-size: cover;
         }
         
-        .courses-content {
+        .features-content {
             position: relative;
             z-index: 2;
         }
         
-        .courses-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .course-card {
+        .feature-card {
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -338,12 +353,12 @@
             position: relative;
         }
         
-        .course-card:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
         
-        .course-img {
+        .feature-img {
             height: 200px;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
@@ -355,7 +370,7 @@
             overflow: hidden;
         }
         
-        .course-img:before {
+        .feature-img:before {
             content: '';
             position: absolute;
             top: 0;
@@ -366,19 +381,84 @@
             opacity: 0.3;
         }
         
-        .course-content {
+        .feature-content {
             padding: 25px;
         }
         
-        .course-content h3 {
+        .feature-content h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
+        }
+        
+        /* How it Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .how-it-works:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fc' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .how-it-works-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 60px;
+            right: 0;
+            height: 2px;
+            background: var(--secondary);
+            z-index: 1;
         }
         
         /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background-color: white;
+            background: linear-gradient(to bottom, #eef2f7, #f8f9fc);
             position: relative;
         }
         
@@ -389,9 +469,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fc' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,165.3C960,160,1056,192,1152,192C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
             background-size: cover;
-            z-index: 0;
         }
         
         .testimonials-content {
@@ -405,7 +484,7 @@
         }
         
         .testimonial {
-            background: var(--light);
+            background: white;
             padding: 30px;
             border-radius: 15px;
             margin: 20px;
@@ -457,7 +536,7 @@
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: linear-gradient(to bottom, #eef2f7, #f8f9fc);
+            background-color: white;
             position: relative;
         }
         
@@ -468,7 +547,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,165.3C960,160,1056,192,1152,192C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fc' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
             background-size: cover;
         }
         
@@ -509,7 +588,7 @@
         }
         
         .contact-form {
-            background: white;
+            background: var(--light);
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
@@ -746,6 +825,14 @@
             .hero p {
                 font-size: 1.2rem;
             }
+            
+            .step {
+                flex: 0 0 calc(50% - 30px);
+            }
+            
+            .step:not(:last-child):after {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -753,12 +840,16 @@
                 padding: 150px 0 100px;
             }
             
-            .feature-card, .course-card {
+            .platform-card, .feature-card {
                 margin-bottom: 20px;
             }
             
             .contact-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex: 0 0 100%;
             }
         }
         
@@ -768,8 +859,8 @@
             color: #fff !important;
         }
         
+        .high-contrast .platform-card,
         .high-contrast .feature-card,
-        .high-contrast .course-card,
         .high-contrast .testimonial,
         .high-contrast .contact-form {
             background-color: #000 !important;
@@ -832,8 +923,9 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#courses">Cursos</a></li>
+                <li><a href="#platform">Plataforma</a></li>
+                <li><a href="#features">Cursos</a></li>
+                <li><a href="#how-it-works">Como Funciona</a></li>
                 <li><a href="#testimonials">Depoimentos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
@@ -843,76 +935,108 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Educação em Saúde de Excelência</h1>
-            <p>Capacite-se com os melhores cursos na área da saúde e transforme vidas através do conhecimento. DRA. Luma Amaral</p>
-            <a href="#courses" class="btn">Conheça Nossos Cursos</a>
+            <h1>Plataforma de Cursos de Saúde</h1>
+            <p>Monetize seu conhecimento em saúde criando e vendendo cursos na maior plataforma especializada do Brasil</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#platform" class="btn">Quero Criar Meu Curso</a>
+                <a href="#features" class="btn btn-outline">Ver Cursos Disponíveis</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="about">
-        <div class="container features-content">
-            <h2 class="section-title">Por que escolher o Instituto Wol?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
+    <!-- Platform Section -->
+    <section class="platform" id="platform">
+        <div class="container platform-content">
+            <h2 class="section-title">Sua Plataforma de Conteúdo em Saúde</h2>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Instrutores Qualificados</h3>
-                    <p>Nossos professores são especialistas com vasta experiência prática na área da saúde.</p>
+                    <h3>Lançamento Rápido</h3>
+                    <p>Coloque seu curso no ar em poucos minutos com nossa ferramenta intuitiva de criação.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-medical"></i>
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Plataforma Tecnológica</h3>
-                    <p>Ambiente virtual de aprendizagem moderno e intuitivo, acessível para todas as idades.</p>
+                    <h3>Monetização</h3>
+                    <p>Receba pagamentos de forma segura e tenha relatórios detalhados de suas vendas.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Foco na Prática</h3>
-                    <p>Conteúdos desenvolvidos para aplicação imediata no mercado de trabalho.</p>
+                    <h3>Comunidade</h3>
+                    <p>Conecte-se com milhares de profissionais de saúde e alunos em nossa plataforma.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section class="courses" id="courses">
-        <div class="container courses-content">
-            <h2 class="section-title">Nossos Cursos</h2>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-img">
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container features-content">
+            <h2 class="section-title">Cursos em Destaque</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
                         <i class="fas fa-user-md"></i>
                     </div>
-                    <div class="course-content">
-                        <h3>Enfermagem Geral</h3>
-                        <p>Curso completo de enfermagem com ênfase em procedimentos técnicos e humanizados.</p>
+                    <div class="feature-content">
+                        <h3>Enfermagem Avançada</h3>
+                        <p>Curso completo para enfermeiros que desejam se especializar em procedimentos complexos.</p>
                         <a href="#" class="btn">Saiba Mais</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-img">
+                <div class="feature-card">
+                    <div class="feature-img">
                         <i class="fas fa-pills"></i>
                     </div>
-                    <div class="course-content">
-                        <h3>Farmácia Básica</h3>
-                        <p>Conheça os fundamentos da farmacologia e técnicas de manipulação de medicamentos.</p>
+                    <div class="feature-content">
+                        <h3>Farmácia Clínica</h3>
+                        <p>Aprenda sobre farmacologia aplicada e interações medicamentosas com casos reais.</p>
                         <a href="#" class="btn">Saiba Mais</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-img">
+                <div class="feature-card">
+                    <div class="feature-img">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <div class="course-content">
-                        <h3>Primeiros Socorros</h3>
-                        <p>Aprenda técnicas essenciais de primeiros socorros para emergências domésticas e urbanas.</p>
+                    <div class="feature-content">
+                        <h3>Cardiologia para Leigos</h3>
+                        <p>Conheça os princípios básicos de cardiologia e primeiros socorros cardíacos.</p>
                         <a href="#" class="btn">Saiba Mais</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container how-it-works-content">
+            <h2 class="section-title">Como Funciona para Criadores</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Crie</h3>
+                    <p>Use nossas ferramentas para criar seu curso em formato de vídeo, texto ou áudio.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configure</h3>
+                    <p>Defina o preço, formas de pagamento e condições de acesso ao seu curso.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Divulgue</h3>
+                    <p>Use nossas ferramentas de marketing para promover seu curso.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Monetize</h3>
+                    <p>Receba seus rendimentos de forma segura e acompanhe suas vendas.</p>
                 </div>
             </div>
         </div>
@@ -921,29 +1045,29 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container testimonials-content">
-            <h2 class="section-title">O que nossos alunos dizem</h2>
+            <h2 class="section-title">O que nossos criadores dizem</h2>
             <div class="testimonials-container">
                 <div class="testimonial">
-                    <p class="testimonial-text">"O curso de Enfermagem do Instituto Wol mudou minha vida. Hoje trabalho em um grande hospital e realizo meu sonho de cuidar de pessoas."</p>
+                    <p class="testimonial-text">"Em apenas 3 meses consegui faturar R$ 25.000 com meu curso de nutrição esportiva. A plataforma do Instituto Wol é intuitiva e me deu todo suporte necessário."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <div>
-                            <h4>Maria Silva</h4>
-                            <p>Aluna de Enfermagem</p>
+                            <h4>Dr. Carlos Silva</h4>
+                            <p>Nutricionista e Criador de Conteúdo</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial">
-                    <p class="testimonial-text">"A plataforma é muito fácil de usar, mesmo para quem não tem familiaridade com tecnologia. Os instrutores são extremamente pacientes e competentes."</p>
+                    <p class="testimonial-text">"Como fisioterapeuta, sempre quis compartilhar meus conhecimentos. Com a plataforma do Instituto Wol, transformei minha expertise em uma fonte de renda passiva."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <div>
-                            <h4>João Santos</h4>
-                            <p>Aluno de Farmácia</p>
+                            <h4>Dra. Ana Costa</h4>
+                            <p>Fisioterapeuta e Criadora de Conteúdo</p>
                         </div>
                     </div>
                 </div>
@@ -991,7 +1115,9 @@
                         <div>
                             <h4>WhatsApp</h4>
                             <p>Escaneie o QR Code para conversar conosco</p>
-                            <img src="[file name]: Imagem do WhatsApp de 2025-09-17 à(s) 20.41.50_f8deea4c.jpg" alt="QR Code WhatsApp" style="max-width: 150px; margin-top: 10px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <div style="background: white; padding: 10px; border-radius: 10px; display: inline-block; margin-top: 10px;">
+                                <img src="[file name]: Imagem do WhatsApp de 2025-09-17 à(s) 20.41.50_f8deea4c.jpg" alt="QR Code WhatsApp" style="max-width: 150px; border-radius: 10px;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1037,8 +1163,8 @@
                     <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#courses">Cursos</a></li>
+                        <li><a href="#platform">Plataforma</a></li>
+                        <li><a href="#features">Cursos</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
@@ -1049,6 +1175,15 @@
                         <li><a href="#">Farmácia</a></li>
                         <li><a href="#">Primeiros Socorros</a></li>
                         <li><a href="#">Cuidador de Idosos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Para Criadores</h4>
+                    <ul>
+                        <li><a href="#">Como Funciona</a></li>
+                        <li><a href="#">Planos e Preços</a></li>
+                        <li><a href="#">Facilidades de Pagamento</a></li>
+                        <li><a href="#">Suporte ao Criador</a></li>
                     </ul>
                 </div>
             </div>
@@ -1161,10 +1296,9 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.feature-card, .course-card, .testimonial').forEach(el => {
+        document.querySelectorAll('.platform-card, .feature-card, .testimonial, .step').forEach(el => {
             observer.observe(el);
         });
     </script>
 </body>
 </html>
-
