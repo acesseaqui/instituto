@@ -44,16 +44,19 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header futurista */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: rgba(42, 107, 140, 0.95);
             color: white;
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .header-container {
@@ -72,6 +75,7 @@
         .logo i {
             margin-right: 10px;
             color: white;
+            text-shadow: 0 0 10px rgba(67, 180, 176, 0.8);
         }
         
         .nav-menu {
@@ -81,6 +85,7 @@
         
         .nav-menu li {
             margin-left: 30px;
+            position: relative;
         }
         
         .nav-menu a {
@@ -89,10 +94,26 @@
             font-weight: 500;
             transition: var(--transition);
             font-size: 1.1rem;
+            padding: 5px 0;
         }
         
         .nav-menu a:hover {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--secondary);
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
         }
         
         .menu-toggle {
@@ -104,26 +125,53 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
+        /* Hero Section com efeito futurista */
         .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(rgba(42, 107, 140, 0.9), rgba(67, 180, 176, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232A6B8C"/><path d="M0 0L100 100" stroke="%2343B4B0" stroke-width="2"/><path d="M100 0L0 100" stroke="%2343B4B0" stroke-width="2"/></svg>');
+            padding: 180px 0 120px;
+            background: linear-gradient(rgba(42, 107, 140, 0.85), rgba(67, 180, 176, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232A6B8C"/><path d="M0 0L100 100" stroke="%2343B4B0" stroke-width="2"/><path d="M100 0L0 100" stroke="%2343B4B0" stroke-width="2"/></svg>');
             background-size: cover;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(67, 180, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.3) 0%, transparent 50%);
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
         }
         
         .hero p {
             font-size: 1.5rem;
             max-width: 800px;
             margin: 0 auto 40px;
+            animation: fadeInUp 1.2s ease;
         }
         
         .btn {
@@ -139,6 +187,25 @@
             cursor: pointer;
             font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
         
         .btn:hover {
@@ -146,10 +213,28 @@
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
         
-        /* Features */
+        /* Features com design tecnológico */
         .features {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: white;
+            position: relative;
+        }
+        
+        .features:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fc' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .features-content {
+            position: relative;
+            z-index: 2;
         }
         
         .section-title {
@@ -179,25 +264,63 @@
             border-radius: 15px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(67, 180, 176, 0.1);
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
             transition: var(--transition);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-card:hover:before {
+            width: 100%;
+            opacity: 0.05;
         }
         
         .feature-icon {
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
         
-        /* Courses */
+        /* Courses Section */
         .courses {
-            padding: 80px 0;
+            padding: 100px 0;
             background: linear-gradient(to bottom, #f8f9fc, #eef2f7);
+            position: relative;
+        }
+        
+        .courses:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,165.3C960,160,1056,192,1152,192C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .courses-content {
+            position: relative;
+            z-index: 2;
         }
         
         .courses-grid {
@@ -210,13 +333,14 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            position: relative;
         }
         
         .course-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
         
         .course-img {
@@ -227,6 +351,19 @@
             justify-content: center;
             color: white;
             font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
         }
         
         .course-content {
@@ -240,8 +377,26 @@
         
         /* Testimonials */
         .testimonials {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: white;
+            position: relative;
+        }
+        
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fc' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,122.7C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .testimonials-content {
+            position: relative;
+            z-index: 2;
         }
         
         .testimonials-container {
@@ -254,18 +409,35 @@
             padding: 30px;
             border-radius: 15px;
             margin: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial:before {
+            content: ''';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 120px;
+            color: rgba(67, 180, 176, 0.1);
+            font-family: Arial;
+            z-index: 0;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .author-avatar {
@@ -279,12 +451,30 @@
             color: white;
             font-size: 1.5rem;
             margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* Contact */
+        /* Contact Section */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0;
             background: linear-gradient(to bottom, #eef2f7, #f8f9fc);
+            position: relative;
+        }
+        
+        .contact:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,165.3C960,160,1056,192,1152,192C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .contact-content {
+            position: relative;
+            z-index: 2;
         }
         
         .contact-container {
@@ -315,13 +505,26 @@
             color: white;
             font-size: 1.2rem;
             margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         .contact-form {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
         
         .form-group {
@@ -353,7 +556,20 @@
         footer {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
         }
         
         .footer-container {
@@ -361,6 +577,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .footer-logo {
@@ -421,6 +639,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
         }
         
         /* Accessibility */
@@ -530,7 +750,7 @@
         
         @media (max-width: 768px) {
             .hero {
-                padding: 130px 0 80px;
+                padding: 150px 0 100px;
             }
             
             .feature-card, .course-card {
@@ -581,6 +801,22 @@
         .large-text h3 {
             font-size: 2rem !important;
         }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeInUp 1s ease;
+        }
     </style>
 </head>
 <body>
@@ -606,16 +842,16 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Educação em Saúde de Excelência</h1>
-            <p>Capacite-se com os melhores cursos na área da saúde e transforme vidas através do conhecimento. Dra. Luma Aramal</p>
+            <p>Capacite-se com os melhores cursos na área da saúde e transforme vidas através do conhecimento</p>
             <a href="#courses" class="btn">Conheça Nossos Cursos</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="about">
-        <div class="container">
+        <div class="container features-content">
             <h2 class="section-title">Por que escolher o Instituto Wol?</h2>
             <div class="features-grid">
                 <div class="feature-card">
@@ -645,7 +881,7 @@
 
     <!-- Courses Section -->
     <section class="courses" id="courses">
-        <div class="container">
+        <div class="container courses-content">
             <h2 class="section-title">Nossos Cursos</h2>
             <div class="courses-grid">
                 <div class="course-card">
@@ -684,7 +920,7 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="container">
+        <div class="container testimonials-content">
             <h2 class="section-title">O que nossos alunos dizem</h2>
             <div class="testimonials-container">
                 <div class="testimonial">
@@ -717,7 +953,7 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
+        <div class="container contact-content">
             <h2 class="section-title">Entre em Contato</h2>
             <div class="contact-container">
                 <div class="contact-info">
@@ -746,6 +982,16 @@
                         <div>
                             <h4>Email</h4>
                             <p>contato@institutowol.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>Escaneie o QR Code para conversar conosco</p>
+                            <img src="[file name]: Imagem do WhatsApp de 2025-09-17 à(s) 20.41.50_f8deea4c.jpg" alt="QR Code WhatsApp" style="max-width: 150px; margin-top: 10px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                         </div>
                     </div>
                 </div>
@@ -898,6 +1144,25 @@
             if (!accessBtn.contains(e.target) && !accessPanel.contains(e.target)) {
                 accessPanel.style.display = 'none';
             }
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature-card, .course-card, .testimonial').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
